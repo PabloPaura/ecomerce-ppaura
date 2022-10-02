@@ -1,24 +1,23 @@
-import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
+import Card from "react-bootstrap/Card";
+import ListGroup from "react-bootstrap/ListGroup";
+import Button from "react-bootstrap/Button";
 
 const ItemDetail = ({ data }) => {
-    return ( 
-        <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+  return (
+    <Card style={{ width: "18rem" }}>
+      <Card.Img variant="top" src={data.image} />
       <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
+        <Card.Title>{data.title}</Card.Title>
+        <Card.Text>{data.descroption}</Card.Text>
       </Card.Body>
       <ListGroup className="list-group-flush">
-        <ListGroup.Item>Cras justo odio</ListGroup.Item>
-        <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-        <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+        <ListGroup.Item>{data.price}</ListGroup.Item>
+        <ListGroup.Item>{data.category}</ListGroup.Item>
+        <ListGroup.Item>{data.count}</ListGroup.Item>
       </ListGroup>
+      <Button variant="primary">Agregar al carrito</Button>
     </Card>
-     );
-}
- 
+  );
+};
+
 export default ItemDetail;

@@ -1,14 +1,16 @@
-import Item from '../Item/Item';
+import Item from "../Item/Item";
+import Container from "react-bootstrap/Container";
+import './ItemList.css';
+import Stack from 'react-bootstrap/Stack';
 
-const ItemList = ({products}) => {
-    return ( 
-        <>
-        <h1>ItemList</h1>
-        {products.map((product) => {
-            <Item key={product.id} product={product} />
-        })}
-        </>
-     );
-}
- 
+const ItemList = ({ productos }) => {
+  return (
+    <div className="itemList" >  
+      {productos.map((product) => {
+          return <Item key={product.id} product={product} />;
+        })}      
+    </div>
+  );
+};
+
 export default ItemList;
