@@ -1,6 +1,6 @@
 import{ Container, Navbar, Nav,} from "react-bootstrap";
 import CartWidget from '../CartWidget/CartWidget';
-import '../CartWidget/CartWidget.css';
+
 
 const NavBar = () => {
     return(

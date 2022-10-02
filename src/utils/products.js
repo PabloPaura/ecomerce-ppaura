@@ -1,9 +1,3 @@
-import './ItemListContainer.css';
-import ItemList from '../ItemList/ItemList';
-import Container from 'react-bootstrap/Container';
-import React, {useState, useEffect} from 'react';
-import { getProducts } from '../../utils/products';
-
 const products = [
     {
         "id": 1,
@@ -79,24 +73,21 @@ const products = [
     },
 
 ]
+export const getProducts =() => {
+    const promise = new Promise((resolve) => {
+        setTimeout(() => {
+            return resolve(products);
+        }, 2000)
+    })
+    return promise
+}
 
-const ItemListContainer = ({greeting}) => {
-    const [products, setProducts] = useState([]);
-
-    useEffect(() =>{
-        getProducts()
-        .then((data) => setProducts(data))
-        .catch((error) => console.warn(error))
-
-    }, [])
-    return ( 
-        <Container>
-        <h1>Nuestros productos</h1>
-        <h3 className="greeting" >{greeting}</h3>
-        <ItemList products={products} />
-        </Container>
-     );
-    }
-
- 
-export default ItemListContainer;
+export const getProduct = (id) =>{
+    const promise = new Promise((resolve) => {
+        const result = products.find((product) => product.id === id)
+        setTimeout(() => {
+            return resolve(result);
+        }, 2000)
+    })
+    return promise
+}
