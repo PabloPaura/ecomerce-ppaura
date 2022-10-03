@@ -1,22 +1,34 @@
-import Card from "react-bootstrap/Card";
-import ListGroup from "react-bootstrap/ListGroup";
-import Button from "react-bootstrap/Button";
 
-const ItemDetail = ({ data }) => {
+import ItemCount from '../ItemCount/ItemCount';
+import './ItemDetail.css';
+import {Button, Card, Container} from "react-bootstrap";
+
+
+const ItemDetail = ({ product }) => {
   return (
-    <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src={data.image} />
-      <Card.Body>
-        <Card.Title>{data.title}</Card.Title>
-        <Card.Text>{data.descroption}</Card.Text>
-      </Card.Body>
-      <ListGroup className="list-group-flush">
-        <ListGroup.Item>{data.price}</ListGroup.Item>
-        <ListGroup.Item>{data.category}</ListGroup.Item>
-        <ListGroup.Item>{data.count}</ListGroup.Item>
-      </ListGroup>
-      <Button variant="primary">Agregar al carrito</Button>
-    </Card>
+    <>
+    <Card className="itemDetail__card">
+        <Card.Header>{product.category}</Card.Header>
+        <Card.Body className="itemDetail__body">
+          <Card.Img src={product.image} />
+          <Container className="flex-column">
+            <Container>
+              <Card.Title className="text--uppercase">
+                {product.title}
+              </Card.Title>
+              <Card.Text className="text--large">
+                {product.description}
+              </Card.Text>
+            </Container>
+            <Container className="flex-row">
+              <ItemCount stock={5} initial={0} />
+              {/* <Button className="itemDetail__button">Agregar al carrito</Button> */}
+            </Container>
+          </Container>
+        </Card.Body>
+        <Card.Footer className="text-muted">En stock</Card.Footer>
+      </Card>
+    </>
   );
 };
 

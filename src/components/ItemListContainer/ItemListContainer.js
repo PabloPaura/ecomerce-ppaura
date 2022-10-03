@@ -10,9 +10,15 @@ const ItemListContainer = ({ greeting }) => {
   const [productos, setProductos] = useState([]);
 
   useEffect(() => {
-    getProducts()
-      .then((data) => setProductos(data))
-      .catch((error) => console.warn(error));
+    if (categoryName) {
+      getProducts().then((data) =>
+        setProductos(data.filter((element) => element.category === categoryName))
+      );
+    } else {
+      getProducts()
+        .then((data) => setProductos(data))
+        .catch((error) => console.warn(error));
+    }
   }, [categoryName]);
   return (
     <Container>
