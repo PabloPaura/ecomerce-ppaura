@@ -1,13 +1,18 @@
-
-import ItemCount from '../ItemCount/ItemCount';
-import './ItemDetail.css';
-import {Button, Card, Container} from "react-bootstrap";
-
+import ItemCount from "../ItemCount/ItemCount";
+import "./ItemDetail.css";
+import { Card, Container } from "react-bootstrap";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const ItemDetail = ({ product }) => {
+  const [quantity, setQuantity] = useState(0);
+  function onAdd(quantity) {
+    setQuantity(quantity);
+  }
+  console.log(quantity);
   return (
     <>
-    <Card className="itemDetail__card">
+      <Card className="itemDetail__card">
         <Card.Header>{product.category}</Card.Header>
         <Card.Body className="itemDetail__body">
           <Card.Img src={product.image} />
@@ -21,8 +26,17 @@ const ItemDetail = ({ product }) => {
               </Card.Text>
             </Container>
             <Container className="flex-row">
-              <ItemCount stock={5} initial={0} />
-              {/* <Button className="itemDetail__button">Agregar al carrito</Button> */}
+              {quantity === 0 ? (
+                <ItemCount
+                  stock={5}
+                  initial={0}
+                  onAdd={(quantity) => onAdd(quantity)}
+                />
+              ) : (
+                <Link to="/Cart">
+                  <button>Finalizar compra</button>
+                </Link>
+              )}
             </Container>
           </Container>
         </Card.Body>
