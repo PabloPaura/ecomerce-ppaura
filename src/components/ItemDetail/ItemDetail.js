@@ -1,11 +1,18 @@
 import ItemCount from "../ItemCount/ItemCount";
 import "./ItemDetail.css";
 import { Card, Container } from "react-bootstrap";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../Context/CartContext";
 
 const ItemDetail = ({ product }) => {
   const [quantity, setQuantity] = useState(0);
+  const {addToCart} = useContext(CartContext);
+  const handleClick = (number) =>{
+    onAdd(number)
+    addToCart(product, number)
+  }
+
   function onAdd(quantity) {
     setQuantity(quantity);
   }
@@ -30,7 +37,7 @@ const ItemDetail = ({ product }) => {
                 <ItemCount
                   stock={5}
                   initial={0}
-                  onAdd={(quantity) => onAdd(quantity)}
+                  onAdd={handleClick}
                 />
               ) : (
                 <Link to="/Cart">
