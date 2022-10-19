@@ -10,6 +10,7 @@ import { CartContextProvider } from "./Context/CartContext";
 import { useEffect } from "react";
 import getFiirestore, { getDoc } from 'firebase/firestore';
 import {doc, getFirestore} from 'firebase/firestore';
+import swal from 'sweetalert';
 
 function App() {
   useEffect(() => {

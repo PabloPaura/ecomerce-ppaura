@@ -1,6 +1,6 @@
 import ItemCount from "../ItemCount/ItemCount";
 import "./ItemDetail.css";
-import { Card, Container } from "react-bootstrap";
+import { Card, Container, Button } from "react-bootstrap";
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../Context/CartContext";
@@ -16,7 +16,6 @@ const ItemDetail = ({ product }) => {
   function onAdd(quantity) {
     setQuantity(quantity);
   }
-  console.log(quantity);
   return (
     <>
       <Card className="itemDetail__card">
@@ -41,7 +40,7 @@ const ItemDetail = ({ product }) => {
                 />
               ) : (
                 <Link to="/Cart">
-                  <button>Finalizar compra</button>
+                   <Button variant="success">Finalizar compra</Button>
                 </Link>
               )}
             </Container>
