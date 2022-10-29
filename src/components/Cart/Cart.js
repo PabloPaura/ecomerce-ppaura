@@ -1,13 +1,10 @@
-import { Container, Button, Card, Modal, Form, Alert } from "react-bootstrap";
+import { Container, Button, Card} from "react-bootstrap";
 import { FaTrash } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { CartContext } from "../../Context/CartContext";
 import { Link } from "react-router-dom";
 import "./Cart.css";
-import { createOrder } from "../../utils/orders";
 import OrderModal from "../OrderModal";
-
-
 
 const Cart = () => {
   const { cartList, removeItem, clear, total } = useContext(CartContext);
@@ -15,7 +12,6 @@ const Cart = () => {
   const handleOpen = () => setShowModal(true);
 
   const handleClose = () => setShowModal(false);
-
 
   return (
     <Container>
@@ -28,7 +24,6 @@ const Cart = () => {
               <Card.Title>{product.title}</Card.Title>
               <Card.Text>Precio ${product.price}</Card.Text>
               <span>Cantidad: {product.quantity}</span>
-              {/* <Button onClick={() => removeItem(product.id)}>X</Button> */}
               <Button
                 className="cartButton"
                 variant="danger"
@@ -60,7 +55,6 @@ const Cart = () => {
         </>
       )}
       <OrderModal showModal={showModal} onClose={handleClose} />
-      
     </Container>
   );
 };
