@@ -19,7 +19,7 @@ function App() {
   // }, [])
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename="/ecomerce-ppaura" >
       <CartContextProvider>
         <NavBar />
         <Routes>

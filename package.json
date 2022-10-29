@@ -23,6 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://pablopaura.github.io/ecomerce-ppaura",
   "eslintConfig": {
     "extends": [
       "react-app",
