@@ -8,31 +8,15 @@ import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
 import { CartContextProvider } from "./Context/CartContext";
 import { useEffect } from "react";
-import getFiirestore, { getDoc } from 'firebase/firestore';
-import {doc, getFirestore} from 'firebase/firestore';
-import swal from 'sweetalert';
+import {collection, doc, getDoc, getDocs, getFirestore} from 'firebase/firestore';
+import { createAllProducts } from "./utils/products";
+ 
 
 function App() {
-  useEffect(() => {
-    const database = getFirestore();
-
-    const itemReference = doc(database, 'items', 'V7IxtmsxHgcH1ro98c2X');
-
-    getDoc(itemReference)
-      .then((snapshot) => {
-        if(snapshot.exists()){
-          const item = {
-            id: snapshot.id,
-            ...snapshot.data
-          };
-          console.log(item);
-        }
-      })
-      .catch(error => console.warn(error));
-
-  }, []);
-
-
+  //Funcion para llamar mis productos y almacenarlos en Firebase. (Solo la utiñlizo una vez)
+  // useEffect(() => {
+  //   createAllProducts()
+  // }, [])
   return (
     <>
       <BrowserRouter>

@@ -1,9 +1,15 @@
-h4{
-    color: brown;
-    font-size: 1em;
-    }
-    Card.img .card__img{
-        max-height: 100px;
-        width: 100%;
-        object-fit: contain;
-    }
+h4 {
+  color: brown;
+  font-size: 1em;
+}
+Card.Img .card__img {
+  height: 300px;
+  width: 100%;
+  max-width: 200px;
+  object-fit: contain;
+  padding: 1rem;
+}
+
+Card.Body .cardBody {
+  max-width: 300px;
+}

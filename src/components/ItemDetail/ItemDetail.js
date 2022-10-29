@@ -7,11 +7,11 @@ import { CartContext } from "../../Context/CartContext";
 
 const ItemDetail = ({ product }) => {
   const [quantity, setQuantity] = useState(0);
-  const {addToCart} = useContext(CartContext);
-  const handleClick = (number) =>{
-    onAdd(number)
-    addToCart(product, number)
-  }
+  const { addToCart } = useContext(CartContext);
+  const handleClick = (number) => {
+    onAdd(number);
+    addToCart(product, number);
+  };
 
   function onAdd(quantity) {
     setQuantity(quantity);
@@ -33,14 +33,10 @@ const ItemDetail = ({ product }) => {
             </Container>
             <Container className="flex-row">
               {quantity === 0 ? (
-                <ItemCount
-                  stock={5}
-                  initial={0}
-                  onAdd={handleClick}
-                />
+                <ItemCount stock={5} initial={0} onAdd={handleClick} />
               ) : (
                 <Link to="/Cart">
-                   <Button variant="success">Finalizar compra</Button>
+                  <Button variant="success">Finalizar compra</Button>
                 </Link>
               )}
             </Container>

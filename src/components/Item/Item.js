@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 const Item = ({ product }) => {
   return (
     <>
-      <Card style={{ width: "18rem" }}>
+      <Card className="cardBody" style={{ width: "20rem" }}>
         <Card.Img variant="top" className="card__img" src={product.image} />
-        <Card.Body>
+        <Card.Body >
           <Card.Title>{product.title}</Card.Title>
           <Card.Text>{product.description}</Card.Text>
           <h4>Precio: $ {product.price}</h4>

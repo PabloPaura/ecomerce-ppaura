@@ -19,7 +19,7 @@ const ItemDetailContainer = () => {
   }, [id]);
 
   return (
-    <Container>
+    <Container >
       <h1>Detalle de producto</h1>
       {loading ? (
         <ItemDetail product={product} />
