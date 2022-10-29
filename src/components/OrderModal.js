@@ -29,6 +29,7 @@ const OrderModal = ({ showModal, onClose }) => {
 
     const order = await createOrder(newOrder);
     setOrder(order);
+    
   };
   return (
     <Container>
